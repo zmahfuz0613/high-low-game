@@ -7,14 +7,20 @@
   // YOUR CODE STARTS HERE!!
 
   // STEP ONE - Building A Deck.
-  // 1. use a function declaration to create a buildDeck function.
-  // 2. inside the buildDeck function, create an array called "suits" that lists all four suits from a deck of card as strings
-  // 3. inside the buildDeck function, create a 2nd array called "ranks" that lists all 13 cars from ace to King as strings.
+  // 1. use a function declaration to create a buildDeck function. [This has already been done for you].
+  // 2. inside the buildDeck function, create an array called "suits" that lists all four suits from a deck of card as strings [This has already been done for you].
+  // 3. inside the buildDeck function, create a 2nd array called "ranks" that lists all 13 cards from ace to King as strings. [This has already been done for you].
   // 4. inside the buildDeck function, create an empty array called "deck"
   // 5. inside the buildDeck function, create a for loop INSIDE of another for loop. The outer loop should loop through the ranks. The inner loop should loop through the suits. Make sure to use different variables for your iterators.
   // 6. inside your inner for loop, push your looped iterations of ranks and suits as OBJECTS into the empty deck array. Add a third property to this object with the key "value" and the value equal to the current iterator.
   // HINT: The result of step 6 is that each card will be an object inside of the deck array, for example [{suit: "diamonds", rank: "A", value: 0}, {suit: "diamonds", rank: "2", value: 1},...{etc}]. For example, if we wanted to organize the players and teams of the NBA with index numbers, we could write: nba.push({player: players[i], team: teams[n], index: i})
   // 7. After your loops, return deck, which should now return an array full of card objects if you were to run buildDeck().
+
+  function buildDeck() {
+    const suits = ['spades', 'hearts', 'diamonds', 'clubs'];
+    const deck = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+
+  }
 
 
 
