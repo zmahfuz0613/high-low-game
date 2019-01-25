@@ -15,7 +15,7 @@
 1. Complete as much of the game as you are able to and don't be hesitant asking each other for help. 
 1. If there is a part of your code you do not understand, leave a comment in your text editor.
 1. Use good git workflow, by committing often and do a Pull Request when complete. Leave any comments or questions in the PR as well as your comfort and completion levels.
-1. Turn in the homework by Sunday at 11pm.  
+1. Homework is due by Sunday at 11pm.  
 
 
 ![](https://media.giphy.com/media/httS0Xzi9ZMQ0/giphy.gif)
