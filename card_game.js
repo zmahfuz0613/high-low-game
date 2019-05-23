@@ -1,9 +1,3 @@
-/**
- * @author John Master <john.master@ga.co>
- * @since 2018-03-16
- */
-
-
   // YOUR CODE STARTS HERE!!
 
   // STEP ONE - Building A Deck.
