@@ -1,20 +1,30 @@
-  // YOUR CODE STARTS HERE!!
+const readlineSync = require('readline-sync');
 
-  // STEP ONE - Building A Deck.
-  // 1. use a function declaration to create a buildDeck function. [This has already been done for you].
-  // 2. inside the buildDeck function, create an array called "suits" that lists all four suits from a deck of card as strings [This has already been done for you].
-  // 3. inside the buildDeck function, create a 2nd array called "ranks" that lists all 13 cards from ace to King as strings. [This has already been done for you].
-  // 4. inside the buildDeck function, create an empty array called "deck"
-  // 5. inside the buildDeck function, create a for loop INSIDE of another for loop. The outer loop should loop through the ranks. The inner loop should loop through the suits. Make sure to use different variables for your iterators.
-  // 6. inside your inner for loop, push your looped iterations of ranks and suits as OBJECTS into the empty deck array. Add a third property to this object with the key "value" and the value equal to the current iterator.
-  // HINT: The result of step 6 is that each card will be an object inside of the deck array, for example [{suit: "diamonds", rank: "A", value: 0}, {suit: "diamonds", rank: "2", value: 1},...{etc}]. For example, if we wanted to organize the players and teams of the NBA with index numbers, we could write: nba.push({player: players[i], team: teams[n], index: i})
-  // 7. After your loops, return deck, which should now return an array full of card objects if you were to run buildDeck().
+// getInput() is a function that takes a `prompt` as an argument which
+// is a question (string) to ask the user.
+// the returning value of getInput() is a string of whatever the user has typed as the response
 
-  function buildDeck() {
-    const suits = ['spades', 'hearts', 'diamonds', 'clubs'];
-    const ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+function getInput(prompt) {
+  return readlineSync.question(`${prompt}: `);
+}
 
-  }
+// YOUR CODE STARTS HERE!!
+
+// STEP ONE - Building A Deck.
+// 1. use a function declaration to create a buildDeck function. [This has already been done for you].
+// 2. inside the buildDeck function, create an array called "suits" that lists all four suits from a deck of card as strings [This has already been done for you].
+// 3. inside the buildDeck function, create a 2nd array called "ranks" that lists all 13 cards from ace to King as strings. [This has already been done for you].
+// 4. inside the buildDeck function, create an empty array called "deck"
+// 5. inside the buildDeck function, create a for loop INSIDE of another for loop. The outer loop should loop through the ranks. The inner loop should loop through the suits. Make sure to use different variables for your iterators.
+// 6. inside your inner for loop, push your looped iterations of ranks and suits as OBJECTS into the empty deck array. Add a third property to this object with the key "value" and the value equal to the current iterator.
+// HINT: The result of step 6 is that each card will be an object inside of the deck array, for example [{suit: "diamonds", rank: "A", value: 0}, {suit: "diamonds", rank: "2", value: 1},...{etc}]. For example, if we wanted to organize the players and teams of the NBA with index numbers, we could write: nba.push({player: players[i], team: teams[n], index: i})
+// 7. After your loops, return deck, which should now return an array full of card objects if you were to run buildDeck().
+
+function buildDeck() {
+  const suits = ['spades', 'hearts', 'diamonds', 'clubs'];
+  const ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+
+}
 
 
 
@@ -35,10 +45,10 @@
 
   // STEP THREE - Greeting the player
   // 1. Declare a function called greet()
-  // 2. Inside that function, declare a variable called "name" and use "prompt()" to welcome the user to the game, ask for their name, and assign their answer.
+  // 2. Inside that function, declare a variable called "name" and use "getInput()" to welcome the user to the game, ask for their name, and assign their answer.
   // 3. Console.log name
   // 4. return name
-  // 5. Done. Remember, prompt() only works in the browser, so if you want to test this, you'll have to use the console in Chrome Dev Tools.
+  // 5. Done.
 
 
 
@@ -51,7 +61,7 @@
   // STEP FIVE - Respond to User Guess
   // 1. declare a function called guess that takes two cards as arguments
   // 2. console.log the rank and suit of the current card
-  // 3. declare a variable called "input" that uses prompt() to ask the user if they think the next card will be higher (h) or lower (l) than their current card and stores the user's response.
+  // 3. declare a variable called "input" that uses getInput() to ask the user if they think the next card will be higher (h) or lower (l) than their current card and stores the user's response.
   // 4. use a conditional statement to see if "input" equals "h" or "l".
   // 5. If input equals h, return an expression that checks if the outcome of the compare function (using the same arguments as you used for guess) is a negative number.
   // 6. If input equals l, check and see if it's a positive number.
@@ -71,4 +81,3 @@
   // 9. Close the conditional statement and assign nextCard to currentCard. You may have to write this as the type of variable that's always global...
   // 10. Close the while loop and use a ternary statement that checks if the length of the deck array has reached zero. If it has not, tell the user that they won. If it has reached zero, tell them that they're out of cards and they lost.
   // 11. Write a line of code to execute the playGame function.
-  // 12. Open the index.html file in a web browser and play the game. You'll need to use the console in Chrome Dev Tools to see the console logged responses.
