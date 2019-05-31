@@ -7,5 +7,6 @@
 1. Open your files in your code editor.  
 1. Complete all your work in `card_game.js`.  
 1. Follow the pseudocode in the file to complete the game.  
+1. Test your code with `node card_game.js`.
 
 ![](https://media.giphy.com/media/httS0Xzi9ZMQ0/giphy.gif)
