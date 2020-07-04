@@ -23,9 +23,17 @@ function getInput(prompt) {
 function buildDeck() {
   const suits = ['spades', 'hearts', 'diamonds', 'clubs'];
   const ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
-
+  const deck = [];
+  for (let i = 0; i < ranks.length; i++) {
+    for (const j = 0; j < suits.length; j++) {
+      deck.push({ suit: suits[j], rank: ranks[i], value: currentIterator });
+      
+      currentIterator++;
+    }
+  }
+  return deck;
 }
-
+console.log(buildDeck());
 
 
 
@@ -43,6 +51,31 @@ function buildDeck() {
   // 11. Finally, close the while loop and return "shuffledDeck". You should now be able to run shuffle(buildDeck()) in node and see your shuffled deck of cards.
 
 
+function shuffle(deck) {
+
+  const shuffledDeck = deck;
+  let currentIndex = deck.length;
+  let temporaryValue;
+  let randomIndex;
+
+  while (currentIndex != 0) {
+
+    randomIndex = Math.floor((Math.random() * currentIndex))
+    currentIndex--;
+
+    temporaryValue = shuffledDeck[currentIndex];
+    shuffle[currentIndex] = shuffledDeck[randomIndex];
+    shuffledDeck[randomIndex] = temporaryValue;
+
+
+  }
+
+  return shuffledDeck;
+    
+  }
+
+
+ 
   // STEP THREE - Greeting the player
   // 1. Declare a function called greet()
   // 2. Inside that function, declare a variable called "name" and use "getInput()" to welcome the user to the game, ask for their name, and assign their answer.
@@ -51,12 +84,22 @@ function buildDeck() {
   // 5. Done.
 
 
+function greet() {
+  let name = getInput("Welcome to the Card Game, What's your name?");
+  console.log(name);
+  return name;
+
+}
+
+
 
   // STEP FOUR - comparing cards
   // 1. declare a function called compare that takes two cards as arguments
   // 2. return the value property of the first card minus the value property of the second card.
 
-
+function compare(card1, card2) {
+  return card1.value - card2.value;
+}
 
   // STEP FIVE - Respond to User Guess
   // 1. declare a function called guess that takes two cards as arguments
@@ -67,7 +110,9 @@ function buildDeck() {
   // 6. If input equals l, check and see if it's a positive number.
   // 7. If input doesn't equal h or l, tell the user that they need to guess either h or l and that they get no points for this round, then return false.
 
-
+function guess(card1, card2) {
+  console.log("Current card -> suit: " + card1.suit + ", rank: " + card1.rank + ".");
+}
 
   // STEP SIX - Let's play!
   // 1. declare a function called playGame
