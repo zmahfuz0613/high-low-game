@@ -23,9 +23,11 @@ function getInput(prompt) {
 function buildDeck() {
   const suits = ['spades', 'hearts', 'diamonds', 'clubs'];
   const ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+
   const deck = [];
+  let currentIterator = 0;
   for (let i = 0; i < ranks.length; i++) {
-    for (const j = 0; j < suits.length; j++) {
+    for (let j = 0; j < suits.length; j++) {
       deck.push({ suit: suits[j], rank: ranks[i], value: currentIterator });
       
       currentIterator++;
@@ -58,13 +60,13 @@ function shuffle(deck) {
   let temporaryValue;
   let randomIndex;
 
-  while (currentIndex != 0) {
+  while (currentIndex != 0) {                     
 
     randomIndex = Math.floor((Math.random() * currentIndex))
     currentIndex--;
 
     temporaryValue = shuffledDeck[currentIndex];
-    shuffle[currentIndex] = shuffledDeck[randomIndex];
+    shuffledDeck[currentIndex] = shuffledDeck[randomIndex];
     shuffledDeck[randomIndex] = temporaryValue;
 
 
@@ -112,6 +114,19 @@ function compare(card1, card2) {
 
 function guess(card1, card2) {
   console.log("Current card -> suit: " + card1.suit + ", rank: " + card1.rank + ".");
+
+
+  let input = getInput("Your card is suit: " + card1.suit + ", rank: " + card1.rank + ". Do you think the next card will be higher (h) or lower (l) than your current card.");
+  let result = compare(card1, card2);
+
+  if (input === "h") {
+    return result < 0;
+  } else if (input === "l") {
+    return result > 0;
+  } else {
+    console.log("You need to guess either h or l. You get no points for this round.");
+    return false;
+  }
 }
 
   // STEP SIX - Let's play!
@@ -126,3 +141,23 @@ function guess(card1, card2) {
   // 9. Close the conditional statement and assign nextCard to currentCard. You may have to write this as the type of variable that's always global...
   // 10. Close the while loop and use a ternary statement that checks if the length of the deck array has reached zero. If it has not, tell the user that they won. If it has reached zero, tell them that they're out of cards and they lost.
   // 11. Write a line of code to execute the playGame function.
+  function playGame(){
+    const deck = shuffle(buildDeck());
+    const playerName = greet();
+    let score = 0;
+    let currentCard = deck.pop();
+    while(score < 5 && score < deck.length){
+        let nextCard = deck.pop();
+        if(guess(currentCard, nextCard)){
+            score++;
+            console.log("Congratulations " + playerName + ", you guessed it!  Your score is " + score + ".");
+        }else{
+            console.log(playerName + " were wrong and you got no points.")
+        }
+        currentCard = nextCard;
+    }
+    
+    (deck.length === 0) ? console.log("You've run out of cards. You've lost") : console.log("Congratulations "+ playerName + "! You've Won!!");
+    
+  }
+playGame()
